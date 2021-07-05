@@ -1,33 +1,40 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:600&display=swap');
 
+/*********** ANIMATION ************/
 
-
-.header { 
-    background: url('../img/jpg/header-home.jpg')no-repeat; 
-    position: relative; 
-    background-size: cover; 
-    background-position: right;
-    height: 640px;
-}
-
-.navbar-nav {
-    margin-left: auto;
-    margin-top: 2rem;
-    margin-right: 2rem;
-    align-items: flex-end;
-}
-
-
-.navbar-img {
-    position: absolute;
-}
-
-/* ANIMATION */
 .animated {
     -webkit-animation-duration: 2s;
     animation-duration: 2s;
     -webkit-animation-fill-mode: both;
     animation-fill-mode: both;
+ }
+
+.content {
+  background-color:rgba(255,255,255,.8);
+  border-radius:.25em;
+  box-shadow:0 0 .25em rgba(0,0,0,.25);
+  box-sizing:border-box;
+  left:50%;
+  padding:10vmin;
+  position:fixed;
+  text-align:center;
+  top:50%;
+  transform:translate(-50%, -50%);
+}
+
+
+ .shine {
+animation: shine 2s infinite linear;
+animation-fill-mode: forwards;
+  background: linear-gradient(to right, #4d4d4d00 0, rgba(255, 255, 255, 0.288) 10%, #4d4d4d00 20%);
+  background-position: 0;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation-fill-mode: forwards;
+  -webkit-text-size-adjust: none;
+  text-decoration: none;
+  white-space: nowrap;
  }
  
  @-webkit-keyframes fadeInLeft {
@@ -55,11 +62,11 @@
  @keyframes fadeTitle {
     0% {
        opacity: 0;
-       transform: translateX(-20px);
+       transform: translateY(30px);
     }
     100% {
        opacity: 1;
-       transform: translateX(0);
+       transform: translateY(0);
     }
  }
 
@@ -73,22 +80,65 @@
        transform: translateY(0);
     }
  }
+
+ @keyframes shine {
+  0% {
+    background-position: 0
+  }
+  60% {
+    background-position: 180px
+  }
+  100% {
+    background-position: 280px
+  }
+}
  
- .fadeInLeft {
- -webkit-animation-name: fadeInLeft;
- animation-name: fadeInLeft;
+.fadeInLeft {
+    -webkit-animation-name: fadeInLeft;
+    animation-name: fadeInLeft;
  } 
 
- .fadeInTop{
+.fadeInTop{
     -webkit-animation-name: fadeInTop;
     animation-name: fadeInTop;
-    } 
+} 
 
-    .fadeTitle{
-        -webkit-animation-name: fadeTitle;
-        animation-name: fadeTitle;
-        } 
-/* ANIMATION */
+.fadeTitle{
+     -webkit-animation-name: fadeTitle;
+    animation-name: fadeTitle;
+} 
+
+.zoom {
+    transition: transform .2s;
+}
+
+.zoom:hover {
+    transform: scale(1.2)
+}
+
+/*********** HEADER  ************/
+
+.header { 
+    z-index: 1;
+    background: url('../img/jpg/header-home.jpg')no-repeat; 
+    position: relative; 
+    background-size: cover; 
+    background-position: right;
+    height: 640px;
+}
+
+/*********** NAV  ************/
+
+.navbar-nav {
+    margin-left: auto;
+    margin-top: 2rem;
+    margin-right: 2rem;
+    align-items: flex-end;
+}
+
+.navbar-img {
+    position: absolute;
+}
 
 .navbar-expand-lg .navbar-nav .nav-link  {
     font-family: 'Open Sans', sans-serif;
@@ -100,22 +150,12 @@
 }
 
 .navbar-expand-lg .navbar-nav .nav-link:hover  {
-    color: #ffbbbb;
+    color: #ee7979;
 }
 
-.zoom {
-    transition: transform .2s;
+.navbar-expand-lg .navbar-nav .nav-link:focus {
+    color: #806bf3;
 }
-
-.zoom:hover {
-    transform: scale(1.2)
-}
-
-/* .navbar-expand-lg .navbar-collapse {
-    display: flex!important;
-    flex-basis: auto;
-    margin-top: 1rem;
-} */
 
 .menu-img {
     margin-top: 1rem;
@@ -125,12 +165,11 @@
     padding-top: 7rem; 
 }
 
-@media (min-width: 992px){
+@media (min-width: 768px){
     .page-caption { 
         padding-top: 13rem; 
     }
 }
-
 
 .page-title { 
     font-family: 'Open Sans', sans-serif;
@@ -140,3 +179,120 @@
     font-weight:800;
     text-align: center; 
 }
+
+
+
+@media (max-width: 768px){
+    .page-title { 
+        font-size: 2.2rem;
+    }
+}
+
+
+/*********** ETUDIANT BAR  ************/
+
+.card-section { position: relative; bottom: 2.2rem; z-index: 2 }
+
+.decouvrir:hover {
+    cursor: pointer;
+ }
+
+.card-block { 
+    padding: 0;
+    background: rgb(243,93,18);
+    background: linear-gradient(90deg, rgba(243,93,18,1) 9%, rgba(238,29,97,1) 72%);
+}
+
+.section-title {
+    font-size: 1.1rem; 
+    display: flex;
+    justify-content: space-between
+
+}
+
+.etudiant {
+    font-family: 'Open Sans', sans-serif;
+    color: #fff; 
+}
+
+.etudiant-text {
+    padding: 1.5rem 3rem;
+}
+
+.etudiant-b {
+    font-family: 'Open Sans', sans-serif;
+    color: #fff; 
+    font-weight:800;
+}
+
+/*********** DESCRIPTION  ************/
+
+.description {
+    padding-top: 7rem;
+    position: relative; bottom: 4.7rem; z-index: 1; 
+    height: 700px;
+    background: rgb(255,255,255);
+    background: linear-gradient(346deg, rgba(255,255,255,1) 22%, rgba(255,242,247,1) 22%);
+}
+
+.description h1 {
+    font-weight: 800;
+}
+
+.description p{
+    margin: 2rem 0;
+    color: #636363;
+}
+
+.description-img {
+    width: 19rem;
+    padding: 2rem;
+}
+
+/*********** BOUTON  ************/
+
+button {
+    outline: none;
+  }
+  .custom-btn {
+    width: 265px;
+    height: 60px;
+    border: 2px solid rgb(255, 255, 255);
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: white;
+    background: rgb(240,44,112);
+background: linear-gradient(172deg, rgba(240,44,112,1) 10%, rgba(243,89,21,1) 45%, rgba(240,44,112,1) 50%, rgba(243,89,21,1) 86%);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+  }
+
+  .btn-11 {
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+  .btn-11:hover {
+     background: #000;
+    color: #fff;
+  }
+  .btn-11:before {
+      position: absolute;
+      content: '';
+      display: inline-block;
+      top: -180px;
+      left: 0;
+      width: 30px;
+      height: 100%;
+      background-color: #fff;
+      animation: shiny-btn1 3s ease-in-out infinite;
+  }
+  .btn-11:active{
+    box-shadow:  4px 4px 6px 0 rgba(255,255,255,.3),
+                -4px -4px 6px 0 rgba(116, 125, 136, .2), 
+      inset -4px -4px 6px 0 rgba(255,255,255,.2),
+      inset 4px 4px 6px 0 rgba(0, 0, 0, .2);
+  }
+  
